@@ -2,35 +2,56 @@
 
 #  Capstone 2
 
-> Portfolio is one of the most powerful tools in  software developer toolbox; it’s the easiest way of showing what you’re truly capable of as a developer, and is a quick and simple way for recruiters and hiring managers to get an idea of what you can bring to their teams.
- This project will include my projects both personal and microverse assigned projects.
+> The JavaScript capstone project is about building your own web application based on an external API. We will select an API that provides data about a topic that we like and then build the webapp around it. The webapp will have 2 user interfaces.
 
-## Live preview
+<!-- ## Live preview
 
-Live preview [link](https://isaacpitwa.github.io/my-portfolio/)
+Live preview [link](https://isaacpitwa.github.io/my-portfolio/) -->
 
 ## Built With
 
 - HTML & CSS
+- JavaScript
+- Webpack
 - GitFlow
-- Linters
-- Documented Work
+- API
 
+## Run it
+
+Use the following steps to run this Project locally:
+
+- Create a directory
+
+- Open the terminal
+
+- Run this command:
+`git clone git@github.com:Juanse7793/Capstone-2.git`
+
+- Enter in to the folder:
+`cd Capstone-2`
+
+- Run `npm i` to install all dependencies
+- Run `npm run` build to bundle the project with webpack, and
+- Run `npm start` to launch the application
+
+- Open the folder with a code editor (VS Code preferred)
+
+- Go to the index.html file and open it with live server
 
 
 ## Authors
 
-👤 **Author1**
+👤 **Isaac Pitwa**
 
 - GitHub: [@isaacpitwa](https://github.com/isaacpitwa)
 - Twitter: [@isaacpitwa](https://twitter.com/isaacpitwa)
 - LinkedIn: [LinkedIn](https://linkedin.com/in/isaac-pitwa)
 
-👤 **Author1**
+👤 **Juan Sebastian Sotomayor**
 
-- GitHub: [@isaacpitwa](https://github.com/isaacpitwa)
-- Twitter: [@isaacpitwa](https://twitter.com/isaacpitwa)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/isaac-pitwa)
+- GitHub: [@Juanse7793](https://github.com/Juanse7793)
+- Twitter: [@Juanse77930](https://twitter.com/Juanse77930)
+- LinkedIn: [Juan Sebastian Sotomayor](https://linkedin.com/in/juan-sebastian-sotomayor-2bb395198)
 
 
 ## 🤝 Contributing
