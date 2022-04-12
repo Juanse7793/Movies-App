@@ -10,5 +10,27 @@ const getMovieDetails = async (id) => {
   return data;
 };
 
+const addItem = async (id) => {
+  const like = id;
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/saJqehbJdgQUvwzYLq91/likes', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: like,
+    }),
+  });
+
+  const data = response.json();
+  return data;
+};
+
+const getItem = async () => {
+  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/saJqehbJdgQUvwzYLq91/likes');
+  const data = await response.json();
+  return data;
+};
+
 export default getMovie;
-export { getMovieDetails };
+export { getMovieDetails, addItem, getItem };
