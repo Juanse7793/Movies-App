@@ -1,4 +1,4 @@
-import getMovie, { getMovieComments, getMovieDetails } from './API.js';
+import getMovie, { getMovieComments, getMovieDetails, addMovieComment } from './API.js';
 
 const showMovieDetails = (id) => {
   const wrapper = document.createElement('div');
@@ -18,13 +18,60 @@ const showMovieDetails = (id) => {
   };
   popup.appendChild(closeBtn);
 
-  const loadingdiv = document.createElement('div');
-  loadingdiv.innerText = 'loading';
-  popup.appendChild(loadingdiv);
+  const contentContainer = document.createElement('div');
+  contentContainer.classList.add('content-container');
+
+  const contentSide = document.createElement('div');
+  contentSide.classList.add('content-side');
+
+  const form = document.createElement('form');
+  form.classList.add('add-comment');
+
+  const headingText = document.createElement('h4');
+  headingText.innerText = 'Add a comment';
+  form.appendChild(headingText);
+
+  const nameInput = document.createElement('input');
+  nameInput.type = 'text';
+  nameInput.placeholder = 'Your name';
+  nameInput.name = 'name';
+  nameInput.minLength = 2;
+  nameInput.required = true;
+  form.appendChild(nameInput);
+
+  const commentInput = document.createElement('textarea');
+  commentInput.placeholder = 'Your insights';
+  commentInput.cols = 40;
+  commentInput.rows = 6;
+  commentInput.name = 'comment';
+  commentInput.minLength = '2';
+  commentInput.required = true;
+  form.appendChild(commentInput);
+
+  const submitBtn = document.createElement('button');
+  submitBtn.type = 'submit';
+  submitBtn.classList.add('add-comment');
+  submitBtn.innerText = 'comment';
+  form.appendChild(submitBtn);
+
+  form.onsubmit = (event) => {
+    event.preventDefault();
+    submitBtn.innerHTML = '<i class="fa fa-spinner"></i> Loading...';
+    addMovieComment({ item_id: id, username: nameInput.value, comment: commentInput.value }).then(
+      () => {
+        const popupShowing = document.getElementById('popup');
+        document.body.removeChild(popupShowing);
+        submitBtn.innerText = 'comment';
+        form.reset();
+      },
+      () => {
+        submitBtn.innerText = 'comment';
+      },
+    );
+  };
+
   getMovieDetails(id).then(
     (movie) => {
-      loadingdiv.innerText = '';
-
       const contentWrapper = document.createElement('div');
       contentWrapper.classList.add('content-wrapper');
 
@@ -59,7 +106,10 @@ const showMovieDetails = (id) => {
 
       contentDiv.appendChild(detailsDiv);
       contentWrapper.appendChild(contentDiv);
-      popup.appendChild(contentWrapper);
+      contentSide.appendChild(contentWrapper);
+      contentContainer.appendChild(contentSide);
+      contentContainer.appendChild(form);
+      popup.appendChild(contentContainer);
       wrapper.appendChild(popup);
       document.body.insertAdjacentElement('afterbegin', wrapper);
 
@@ -83,7 +133,7 @@ const showMovieDetails = (id) => {
       }, () => {
         commentsDiv.innerHTML = '<p> There are no comments yet.</p>';
       });
-      popup.appendChild(commentsDiv);
+      contentSide.appendChild(commentsDiv);
     },
   );
 };

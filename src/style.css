@@ -75,6 +75,19 @@ body {
   display: flex;
   flex-direction: column;
   gap: 8px;
+  width: 40%;
+  margin: 0 auto;
+}
+
+form input {
+  height: 32px;
+  padding: 4px 8px;
+  margin: 8px 0;
+  border-radius: 4px;
+}
+
+form button {
+  width: 30%;
 }
 
 .popup .close-btn {
@@ -84,7 +97,12 @@ body {
 .content-wrapper {
   display: flex;
   flex-direction: row;
-  width: 50%;
+  width: 100%;
+}
+
+.content-container {
+  display: flex;
+  justify-content: space-between;
 }
 
 .content-wrapper .content h4 {
@@ -106,6 +124,10 @@ ul {
 
 .content-wrapper .content ul:first-child {
   padding: 0;
+}
+
+.content-side {
+  width: 50%;
 }
 
 .footer {
