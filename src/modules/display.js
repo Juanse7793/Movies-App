@@ -87,7 +87,6 @@ const display = async (id) => {
   title.classList.add('title');
   title.innerText = movie.name;
   card.appendChild(title);
-
   const commentsBtn = document.createElement('button');
   commentsBtn.classList.add('comments-btn');
   commentsBtn.innerText = 'Comments';
