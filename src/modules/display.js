@@ -24,18 +24,25 @@ const showMovieDetails = (id) => {
   getMovieDetails(id).then(
     (movie) => {
       loadingdiv.innerText = '';
+
+      const contentWrapper = document.createElement('div');
+      contentWrapper.classList.add('content-wrapper');
+
       const movieImage = document.createElement('img');
       movieImage.alt = movie.name;
       movieImage.src = movie.image.original;
-      popup.appendChild(movieImage);
+      contentWrapper.appendChild(movieImage);
+
+      const contentDiv = document.createElement('div');
+      contentDiv.classList.add('content');
 
       const title = document.createElement('h4');
       title.innerText = movie.name;
-      popup.appendChild(title);
+      contentDiv.appendChild(title);
 
       const desc = document.createElement('div');
       desc.innerHTML = movie.summary;
-      popup.appendChild(desc);
+      contentDiv.appendChild(desc);
 
       const detailsDiv = document.createElement('div');
       detailsDiv.classList.add('details');
@@ -50,7 +57,9 @@ const showMovieDetails = (id) => {
       listTwo.innerHTML = `<li>Rating: ${movie.rating.average}/10</li> <li>premiered: ${movie.premiered}</li>`;
       detailsDiv.appendChild(listTwo);
 
-      popup.appendChild(detailsDiv);
+      contentDiv.appendChild(detailsDiv);
+      contentWrapper.appendChild(contentDiv);
+      popup.appendChild(contentWrapper);
       wrapper.appendChild(popup);
       document.body.insertAdjacentElement('afterbegin', wrapper);
     },

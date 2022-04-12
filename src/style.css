@@ -1,5 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
 * {
-  font-family: Inter, sans-serif;
+  font-family: Poppins, sans-serif;
 }
 
 body {
@@ -77,4 +79,31 @@ body {
 
 .popup .close-btn {
   margin-left: auto;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: row;
+  width: 50%;
+}
+
+.content-wrapper .content h4 {
+  margin: 0;
+  font-size: 21px;
+}
+
+.content-wrapper .content {
+  padding: 0 16px;
+}
+
+.content-wrapper .content p {
+  font-size: 14px;
+}
+
+.content-wrapper .content ul {
+  list-style: none;
+}
+
+.content-wrapper .content ul:first-child {
+  padding: 0;
 }
