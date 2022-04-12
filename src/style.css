@@ -35,7 +35,7 @@ body {
 
 .movie-img {
   width: 300px;
-  height: auto;
+  height: 500px;
 }
 
 .container {
@@ -106,4 +106,19 @@ body {
 
 .content-wrapper .content ul:first-child {
   padding: 0;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid black;
+  margin-top: 20px;
+  height: 100px;
+}
+
+.foo-text {
+  font-style: italic;
+  font-weight: 300;
+  font-size: 20px;
 }
