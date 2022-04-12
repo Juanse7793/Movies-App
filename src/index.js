@@ -1,11 +1,6 @@
 import './style.css';
-function component() {
-    const element = document.createElement('div');
-  
-    element.innerHTML = "Hello Webpack";
-  
-    return element;
-  }
-  
-  document.body.appendChild(component());
-  
+import createCards from './modules/functions.js';
+
+document.addEventListener('DOMContentLoaded', () => {
+  createCards();
+});
