@@ -109,6 +109,9 @@ const display = async (id) => {
   like.addEventListener('click', () => {
     like.classList.toggle('fa-heart-o');
     like.classList.toggle('fa-heart');
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
   });
 };
 
