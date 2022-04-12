@@ -1,4 +1,4 @@
-import getMovie, { getMovieDetails } from './API.js';
+import getMovie, { getMovieComments, getMovieDetails } from './API.js';
 
 const showMovieDetails = (id) => {
   const wrapper = document.createElement('div');
@@ -62,6 +62,28 @@ const showMovieDetails = (id) => {
       popup.appendChild(contentWrapper);
       wrapper.appendChild(popup);
       document.body.insertAdjacentElement('afterbegin', wrapper);
+
+      const commentsDiv = document.createElement('div');
+      commentsDiv.innerText = 'Loading...';
+      commentsDiv.classList.add('comments');
+      getMovieComments(id).then((response) => {
+        if (response.error) {
+          commentsDiv.innerHTML = '  <h4>Comments (0)</h4> <p> There are no comments yet.</p>';
+        } else {
+          commentsDiv.innerHTML = `<h4>Comments (${response.length})</h4>`;
+
+          const commentsList = document.createElement('ul');
+          commentsList.classList.add('comments-list');
+          response.forEach((comment) => {
+            commentsList.innerHTML += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
+          });
+
+          commentsDiv.appendChild(commentsList);
+        }
+      }, () => {
+        commentsDiv.innerHTML = '<p> There are no comments yet.</p>';
+      });
+      popup.appendChild(commentsDiv);
     },
   );
 };
