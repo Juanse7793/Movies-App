@@ -98,8 +98,8 @@ const showMovieDetails = (id) => {
         form.reset();
         fetchMovieComments(id, contentSide, true);
       },
-      (error) => {
-        alert(`${error}`);
+      () => {
+        // alert(`${error}`);
         submitBtn.innerText = 'comment';
         form.reset();
       },
