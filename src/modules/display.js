@@ -1,3 +1,4 @@
+import moment from 'moment';
 import getMovie,
 {
   getMovieComments,
@@ -25,9 +26,8 @@ const fetchMovieComments = (id, contentSide, update = false) => {
       const commentsList = document.createElement('ul');
       commentsList.classList.add('comments-list');
       response.forEach((comment) => {
-        commentsList.innerHTML += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
+        commentsList.innerHTML += `<li> ${comment.username} <span>${moment(comment.creation_date).fromNow()}</span>\n <p> ${comment.comment}</p></li>`;
       });
-
       commentsDiv.appendChild(commentsList);
     }
   }, () => {
