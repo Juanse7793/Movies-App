@@ -121,6 +121,13 @@ form button {
   padding: 0 16px;
 }
 
+.comments-list li p {
+  margin: 0;
+  font-size: 14px;
+  color: rgb(24 23 23);
+  font-weight: 400;
+}
+
 .content-wrapper .content p {
   font-size: 14px;
 }
@@ -161,17 +168,13 @@ ul {
   padding: 0;
   margin: 0;
 }
+
 .comments-list li {
   padding: 4px 0;
   font-size: 14px;
 }
-.comments-list li p {
-  margin: 0;
-  font-size: 14px;
-  color: rgb(24, 23, 23);
-  font-weight: 400;
-}
+
 .comments-list li span {
-  color: rgb(148, 147, 147);
+  color: rgb(148 147 147);
   font-size: 12px;
 }
