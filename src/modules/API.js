@@ -25,10 +25,8 @@ const addMovieComment = async (comment) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(comment),
-
   });
-  const data = await response.json();
-  return data;
+  return response;
 };
 const addItem = async (id) => {
   const like = id;
