@@ -41,6 +41,7 @@
     "webpack-dev-server": "^4.7.4"
   },
   "dependencies": {
-    "lodash": "^4.17.21"
+    "lodash": "^4.17.21",
+    "moment": "^2.29.2"
   }
 }

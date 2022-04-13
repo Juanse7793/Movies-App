@@ -84,10 +84,17 @@ form input {
   padding: 4px 8px;
   margin: 8px 0;
   border-radius: 4px;
+  border: 1px solid gray;
+}
+
+form textarea {
+  padding: 4px 8px;
 }
 
 form button {
   width: 30%;
+  border: 1px solid gray;
+  border-radius: 4px;
 }
 
 .popup .close-btn {
@@ -112,6 +119,13 @@ form button {
 
 .content-wrapper .content {
   padding: 0 16px;
+}
+
+.comments-list li p {
+  margin: 0;
+  font-size: 14px;
+  color: rgb(24 23 23);
+  font-weight: 400;
 }
 
 .content-wrapper .content p {
@@ -148,6 +162,21 @@ ul {
 .like {
   margin-left: 150px;
   font-size: 30px;
+}
+
+.comments-list {
+  padding: 0;
+  margin: 0;
+}
+
+.comments-list li {
+  padding: 4px 0;
+  font-size: 14px;
+}
+
+.comments-list li span {
+  color: rgb(148 147 147);
+  font-size: 12px;
 }
 
 .item-title {
