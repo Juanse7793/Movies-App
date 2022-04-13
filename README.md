@@ -4,9 +4,9 @@
 
 > The JavaScript capstone project is about building your own web application based on an external API. We will select an API that provides data about a topic that we like and then build the webapp around it. The webapp will have 2 user interfaces.
 
-<!-- ## Live preview
+## Live preview
 
-Live preview [link](https://isaacpitwa.github.io/my-portfolio/) -->
+Take a look at the Movies page we Create => [link](https://juanse7793.github.io/Capstone-2/)
 
 ## Built With
 
