@@ -66,13 +66,15 @@ const showMovieDetails = (id) => {
     submitBtn.innerHTML = '<i class="fa fa-spinner"></i> Loading...';
     addMovieComment({ item_id: id, username: nameInput.value, comment: commentInput.value }).then(
       () => {
-        const popupShowing = document.getElementById('popup');
-        document.body.removeChild(popupShowing);
         submitBtn.innerText = 'comment';
         form.reset();
+        const popupShowing = document.getElementById('popup');
+        document.body.removeChild(popupShowing);
       },
-      () => {
+      (error) => {
+        alert(`${error}`);
         submitBtn.innerText = 'comment';
+        form.reset();
       },
     );
   };
