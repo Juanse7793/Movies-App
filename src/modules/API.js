@@ -30,8 +30,6 @@ const addMovieComment = async (comment) => {
   const data = await response.json();
   return data;
 };
-
-
 const addItem = async (id) => {
   const like = id;
   const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/saJqehbJdgQUvwzYLq91/likes', {
@@ -55,4 +53,10 @@ const getItem = async () => {
 };
 
 export default getMovie;
-export { getMovieDetails, getMovieComments, addMovieComment ,addItem, getItem };
+export {
+  getMovieDetails,
+  getMovieComments,
+  addMovieComment,
+  addItem,
+  getItem,
+};

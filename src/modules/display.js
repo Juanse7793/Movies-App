@@ -1,4 +1,11 @@
-import getMovie, { getMovieComments, getMovieDetails, addMovieComment, getItem, addItem } from './API.js';
+import getMovie,
+{
+  getMovieComments,
+  getMovieDetails,
+  addMovieComment,
+  getItem,
+  addItem,
+} from './API.js';
 
 const showMovieDetails = (id) => {
   const wrapper = document.createElement('div');
