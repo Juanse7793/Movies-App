@@ -1,6 +1,5 @@
 import moment from 'moment';
-import getMovie,
-{
+import {
   getMovieComments,
   getMovieDetails,
   addMovieComment,
@@ -155,8 +154,7 @@ const showMovieDetails = (id) => {
   );
 };
 
-const display = async (id) => {
-  const movie = await getMovie(id);
+const display = async (movie) => {
   const cardContainer = document.getElementById('cards');
   const card = document.createElement('div');
   card.classList.add('card-container');
@@ -179,20 +177,20 @@ const display = async (id) => {
 
   const numberLikes = document.createElement('p');
   numberLikes.classList.add('number-likes');
-  numberLikes.innerText = `Likes: ${await getItem().then((data) => data.find((element) => element.item_id === id).likes)}`;
+  numberLikes.innerText = `Likes: ${await getItem().then((data) => (data.find((element) => element.item_id === movie.id) !== undefined ? data.find((element) => element.item_id === movie.id).likes : 0))}`;
   card.appendChild(numberLikes);
 
   const commentsBtn = document.createElement('button');
   commentsBtn.classList.add('comments-btn');
   commentsBtn.innerText = 'Comments';
-  commentsBtn.onclick = (event) => { event.preventDefault(); showMovieDetails(id); };
+  commentsBtn.onclick = (event) => { event.preventDefault(); showMovieDetails(movie.id); };
   card.appendChild(commentsBtn);
 
   const like = document.createElement('i');
   like.classList.add('like');
   like.classList.add('fa');
   like.classList.add('fa-heart-o');
-  like.onclick = (event) => { event.preventDefault(); addItem(id); };
+  like.onclick = (event) => { event.preventDefault(); addItem(movie.id); };
   card.appendChild(like);
 
   like.addEventListener('click', () => {

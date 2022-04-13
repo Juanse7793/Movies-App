@@ -5,6 +5,11 @@ const getMovie = async (id) => {
   const data = await response.json();
   return data;
 };
+const getMovies = async () => {
+  const response = await fetch('https://api.tvmaze.com/shows');
+  const data = await response.json();
+  return data;
+};
 
 const getMovieDetails = async (id) => {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
@@ -30,7 +35,7 @@ const addMovieComment = async (comment) => {
 };
 const addItem = async (id) => {
   const like = id;
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/saJqehbJdgQUvwzYLq91/likes', {
+  const response = await fetch(`${baseUrl}/${appId}/likes`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -45,7 +50,7 @@ const addItem = async (id) => {
 };
 
 const getItem = async () => {
-  const response = await fetch('https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/saJqehbJdgQUvwzYLq91/likes');
+  const response = await fetch(`${baseUrl}/${appId}/likes`);
   const data = await response.json();
   return data;
 };
@@ -57,4 +62,5 @@ export {
   addMovieComment,
   addItem,
   getItem,
+  getMovies,
 };
