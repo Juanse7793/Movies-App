@@ -1,6 +1,5 @@
 import moment from 'moment';
-import getMovie,
-{
+import {
   getMovieComments,
   getMovieDetails,
   addMovieComment,
@@ -99,8 +98,8 @@ const showMovieDetails = (id) => {
         form.reset();
         fetchMovieComments(id, contentSide, true);
       },
-      (error) => {
-        alert(`${error}`);
+      () => {
+        // alert(`${error}`);
         submitBtn.innerText = 'comment';
         form.reset();
       },
@@ -155,8 +154,7 @@ const showMovieDetails = (id) => {
   );
 };
 
-const display = async (id) => {
-  const movie = await getMovie(id);
+const display = async (movie) => {
   const cardContainer = document.getElementById('cards');
   const card = document.createElement('div');
   card.classList.add('card-container');
@@ -165,7 +163,7 @@ const display = async (id) => {
   const itemContainer = document.getElementById('items-container');
   const itemTitle = document.createElement('p');
   itemTitle.classList.add('item-title');
-  itemTitle.innerText = `The number of movies displayed is: ${cardContainer.childElementCount}`;
+  itemTitle.innerText = `Total Movies: ${cardContainer.childElementCount}`;
   itemContainer.innerHTML = '';
   itemContainer.appendChild(itemTitle);
 
@@ -184,23 +182,23 @@ const display = async (id) => {
   title.innerText = movie.name;
   card.appendChild(title);
 
+  const numberLikes = document.createElement('p');
+  numberLikes.classList.add('number-likes');
+  numberLikes.innerText = `Likes: ${await getItem().then((data) => (data.find((element) => element.item_id === movie.id) !== undefined ? data.find((element) => element.item_id === movie.id).likes : 0))}`;
+  card.appendChild(numberLikes);
+
   const commentsBtn = document.createElement('button');
   commentsBtn.classList.add('comments-btn');
   commentsBtn.innerText = 'Comments';
-  commentsBtn.onclick = (event) => { event.preventDefault(); showMovieDetails(id); };
+  commentsBtn.onclick = (event) => { event.preventDefault(); showMovieDetails(movie.id); };
   card.appendChild(commentsBtn);
 
   const like = document.createElement('i');
   like.classList.add('like');
   like.classList.add('fa');
   like.classList.add('fa-heart-o');
-  like.onclick = (event) => { event.preventDefault(); addItem(id); };
+  like.onclick = (event) => { event.preventDefault(); addItem(movie.id); };
   card.appendChild(like);
-
-  const numberLikes = document.createElement('p');
-  numberLikes.classList.add('number-likes');
-  numberLikes.innerText = `Likes: ${await getItem().then((data) => data.find((element) => element.item_id === id).likes)}`;
-  card.appendChild(numberLikes);
 
   like.addEventListener('click', () => {
     like.classList.toggle('fa-heart-o');
