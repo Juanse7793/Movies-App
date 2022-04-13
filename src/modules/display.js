@@ -1,4 +1,4 @@
-import getMovie, { getMovieComments, getMovieDetails, addMovieComment } from './API.js';
+import getMovie, { getMovieComments, getMovieDetails, addMovieComment, getItem, addItem } from './API.js';
 
 const showMovieDetails = (id) => {
   const wrapper = document.createElement('div');
@@ -159,11 +159,32 @@ const display = async (id) => {
   title.classList.add('title');
   title.innerText = movie.name;
   card.appendChild(title);
+
+  const numberLikes = document.createElement('p');
+  numberLikes.classList.add('number-likes');
+  numberLikes.innerText = `Likes: ${await getItem().then((data) => data.find((element) => element.item_id === id).likes)}`;
+  card.appendChild(numberLikes);
+
   const commentsBtn = document.createElement('button');
   commentsBtn.classList.add('comments-btn');
   commentsBtn.innerText = 'Comments';
   commentsBtn.onclick = (event) => { event.preventDefault(); showMovieDetails(id); };
   card.appendChild(commentsBtn);
+
+  const like = document.createElement('i');
+  like.classList.add('like');
+  like.classList.add('fa');
+  like.classList.add('fa-heart-o');
+  like.onclick = (event) => { event.preventDefault(); addItem(id); };
+  card.appendChild(like);
+
+  like.addEventListener('click', () => {
+    like.classList.toggle('fa-heart-o');
+    like.classList.toggle('fa-heart');
+    setTimeout(() => {
+      window.location.reload();
+    }, 1000);
+  });
 };
 
 export default display;
