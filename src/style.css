@@ -178,3 +178,8 @@ ul {
   color: rgb(148 147 147);
   font-size: 12px;
 }
+
+.item-title {
+  margin-left: 40px;
+  font-size: 30px;
+}
