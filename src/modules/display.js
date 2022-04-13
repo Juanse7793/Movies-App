@@ -7,6 +7,35 @@ import getMovie,
   addItem,
 } from './API.js';
 
+const fetchMovieComments = (id, contentSide, update = false) => {
+  if (update) {
+    const commentsShowing = document.getElementById('comments');
+    contentSide.removeChild(commentsShowing);
+  }
+  const commentsDiv = document.createElement('div');
+  commentsDiv.innerText = 'Loading...';
+  commentsDiv.classList.add('comments');
+  commentsDiv.id = 'comments';
+  getMovieComments(id).then((response) => {
+    if (response.error) {
+      commentsDiv.innerHTML = '  <h4>Comments (0)</h4> <p> There are no comments yet.</p>';
+    } else {
+      commentsDiv.innerHTML = `<h4>Comments (${response.length})</h4>`;
+
+      const commentsList = document.createElement('ul');
+      commentsList.classList.add('comments-list');
+      response.forEach((comment) => {
+        commentsList.innerHTML += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
+      });
+
+      commentsDiv.appendChild(commentsList);
+    }
+  }, () => {
+    commentsDiv.innerHTML = '<p> There are no comments yet.</p>';
+  });
+  contentSide.appendChild(commentsDiv);
+};
+
 const showMovieDetails = (id) => {
   const wrapper = document.createElement('div');
   wrapper.classList.add('popup-wrapper');
@@ -68,8 +97,7 @@ const showMovieDetails = (id) => {
       () => {
         submitBtn.innerText = 'comment';
         form.reset();
-        const popupShowing = document.getElementById('popup');
-        document.body.removeChild(popupShowing);
+        fetchMovieComments(id, contentSide, true);
       },
       (error) => {
         alert(`${error}`);
@@ -122,27 +150,7 @@ const showMovieDetails = (id) => {
       wrapper.appendChild(popup);
       document.body.insertAdjacentElement('afterbegin', wrapper);
 
-      const commentsDiv = document.createElement('div');
-      commentsDiv.innerText = 'Loading...';
-      commentsDiv.classList.add('comments');
-      getMovieComments(id).then((response) => {
-        if (response.error) {
-          commentsDiv.innerHTML = '  <h4>Comments (0)</h4> <p> There are no comments yet.</p>';
-        } else {
-          commentsDiv.innerHTML = `<h4>Comments (${response.length})</h4>`;
-
-          const commentsList = document.createElement('ul');
-          commentsList.classList.add('comments-list');
-          response.forEach((comment) => {
-            commentsList.innerHTML += `<li>${comment.creation_date} ${comment.username}: ${comment.comment}</li>`;
-          });
-
-          commentsDiv.appendChild(commentsList);
-        }
-      }, () => {
-        commentsDiv.innerHTML = '<p> There are no comments yet.</p>';
-      });
-      contentSide.appendChild(commentsDiv);
+      fetchMovieComments(id, contentSide);
     },
   );
 };
