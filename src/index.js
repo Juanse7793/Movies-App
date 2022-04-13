@@ -6,6 +6,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   const itemContainer = document.getElementById('items-container');
   const itemTitle = document.createElement('p');
   itemTitle.classList.add('item-title');
-  itemTitle.innerText = `The number of movies displayed is: ${await createCards()}`;
+  itemTitle.innerText = `Total Movies: ${await createCards()}`;
   itemContainer.appendChild(itemTitle);
 });
