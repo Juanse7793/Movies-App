@@ -154,6 +154,13 @@ const display = async (id) => {
   card.classList.add('card-container');
   cardContainer.appendChild(card);
 
+  const itemContainer = document.getElementById('items-container');
+  const itemTitle = document.createElement('p');
+  itemTitle.classList.add('item-title');
+  itemTitle.innerText = `The number of movies displayed is: ${cardContainer.childElementCount}`;
+  itemContainer.innerHTML = '';
+  itemContainer.appendChild(itemTitle);
+
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
   card.appendChild(imageContainer);
@@ -169,11 +176,6 @@ const display = async (id) => {
   title.innerText = movie.name;
   card.appendChild(title);
 
-  const numberLikes = document.createElement('p');
-  numberLikes.classList.add('number-likes');
-  numberLikes.innerText = `Likes: ${await getItem().then((data) => data.find((element) => element.item_id === id).likes)}`;
-  card.appendChild(numberLikes);
-
   const commentsBtn = document.createElement('button');
   commentsBtn.classList.add('comments-btn');
   commentsBtn.innerText = 'Comments';
@@ -186,6 +188,11 @@ const display = async (id) => {
   like.classList.add('fa-heart-o');
   like.onclick = (event) => { event.preventDefault(); addItem(id); };
   card.appendChild(like);
+
+  const numberLikes = document.createElement('p');
+  numberLikes.classList.add('number-likes');
+  numberLikes.innerText = `Likes: ${await getItem().then((data) => data.find((element) => element.item_id === id).likes)}`;
+  card.appendChild(numberLikes);
 
   like.addEventListener('click', () => {
     like.classList.toggle('fa-heart-o');
