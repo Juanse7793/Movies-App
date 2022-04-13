@@ -160,6 +160,13 @@ const display = async (movie) => {
   card.classList.add('card-container');
   cardContainer.appendChild(card);
 
+  const itemContainer = document.getElementById('items-container');
+  const itemTitle = document.createElement('p');
+  itemTitle.classList.add('item-title');
+  itemTitle.innerText = `Total Movies: ${cardContainer.childElementCount}`;
+  itemContainer.innerHTML = '';
+  itemContainer.appendChild(itemTitle);
+
   const imageContainer = document.createElement('div');
   imageContainer.classList.add('image-container');
   card.appendChild(imageContainer);
