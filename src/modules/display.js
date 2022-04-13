@@ -7,11 +7,10 @@ import getMovie,
   addItem,
 } from './API.js';
 
-const fetchMovieComments = (id, contentSide, update = false) => {
-  if (update) {
-    const commentsShowing = document.getElementById('comments');
-    contentSide.removeChild(commentsShowing);
-  }
+const fetchMovieComments = (id, contentSide) => {
+  const commentsShowing = document.getElementById('comments');
+  contentSide.removeChild(commentsShowing);
+
   const commentsDiv = document.createElement('div');
   commentsDiv.innerText = 'Loading...';
   commentsDiv.classList.add('comments');
@@ -97,7 +96,7 @@ const showMovieDetails = (id) => {
       () => {
         submitBtn.innerText = 'comment';
         form.reset();
-        fetchMovieComments(id, contentSide, true);
+        fetchMovieComments(id, contentSide);
       },
       (error) => {
         alert(`${error}`);
