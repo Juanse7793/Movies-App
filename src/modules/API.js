@@ -1,5 +1,6 @@
 const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps';
 const appId = 'saJqehbJdgQUvwzYLq91';
+
 const getMovie = async (id) => {
   const response = await fetch(`https://api.tvmaze.com/shows/${id}`);
   const data = await response.json();
@@ -55,6 +56,11 @@ const getItem = async () => {
   return data;
 };
 
+const itemCounter = async () => {
+  const data = await getMovies();
+  return data.length;
+};
+
 export default getMovie;
 export {
   getMovieDetails,
@@ -63,4 +69,5 @@ export {
   addItem,
   getItem,
   getMovies,
+  itemCounter,
 };
