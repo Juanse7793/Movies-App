@@ -54,6 +54,10 @@ Use the following steps to run this Project locally:
 - LinkedIn: [Juan Sebastian Sotomayor](https://linkedin.com/in/juan-sebastian-sotomayor-2bb395198)
 
 
+## Presentation
+
+Click here to see the [Video](https://drive.google.com/file/d/13tSW0ET0Fk2PHUehzoZuuil2ESdVF1cU/view?usp=sharing) of the Capstone 1 Project
+
 ## 🤝 Contributing
 
 Contributions, issues, and feature requests are welcome!
