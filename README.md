@@ -36,7 +36,7 @@ Use the following steps to run this Project locally:
 
 - Open the folder with a code editor (VS Code preferred)
 
-- Go to the index.html file and open it with live server
+- To run all tests write the command `npm run test`
 
 
 ## Authors
