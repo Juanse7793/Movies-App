@@ -5,6 +5,7 @@ import {
   addMovieComment,
   getItem,
   addItem,
+  itemCounter,
 } from './API.js';
 
 const fetchMovieComments = (id, contentSide, update = false) => {
@@ -163,7 +164,7 @@ const display = async (movie) => {
   const itemContainer = document.getElementById('items-container');
   const itemTitle = document.createElement('p');
   itemTitle.classList.add('item-title');
-  itemTitle.innerText = `Total Movies: ${cardContainer.childElementCount}`;
+  itemTitle.innerText = `Total Movies: ${await itemCounter()}`;
   itemContainer.innerHTML = '';
   itemContainer.appendChild(itemTitle);
 
