@@ -22,6 +22,7 @@ const getMovieComments = async (id) => {
   const data = await response.json();
   return data;
 };
+const getMovieCommentCounter = (comments) => comments.length;
 
 const addMovieComment = async (comment) => {
   const response = await fetch(`${baseUrl}/${appId}/comments`, {
@@ -63,4 +64,5 @@ export {
   addItem,
   getItem,
   getMovies,
+  getMovieCommentCounter,
 };
