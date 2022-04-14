@@ -56,7 +56,7 @@ Use the following steps to run this Project locally:
 
 ## Presentation
 
-Click here to see the [Video](https://drive.google.com/file/d/13tSW0ET0Fk2PHUehzoZuuil2ESdVF1cU/view?usp=sharing) of the Capstone 1 Project
+Click here to see the [Video](https://drive.google.com/file/d/13tSW0ET0Fk2PHUehzoZuuil2ESdVF1cU/view?usp=sharing) of the JavaScript Capstone Project
 
 ## 🤝 Contributing
 
