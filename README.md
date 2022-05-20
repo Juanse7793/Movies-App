@@ -6,7 +6,7 @@
 
 ## Live preview
 
-Take a look at the Movies page we Create => [link](https://juanse7793.github.io/Capstone-2/)
+Take a look at the Movies page we Create => [link](https://juanse7793.github.io/Movies-App/)
 
 ## Built With
 
