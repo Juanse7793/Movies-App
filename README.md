@@ -25,10 +25,10 @@ Use the following steps to run this Project locally:
 - Open the terminal
 
 - Run this command:
-`git clone git@github.com:Juanse7793/Capstone-2.git`
+`git clone git@github.com:Juanse7793/Movies-App.git`
 
 - Enter in to the folder:
-`cd Capstone-2`
+`cd Movies-App`
 
 - Run `npm i` to install all dependencies
 - Run `npm run` build to bundle the project with webpack, and
