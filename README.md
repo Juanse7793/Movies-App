@@ -1,6 +1,6 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-#  Capstone 2
+#  Movies App
 
 > The JavaScript capstone project is about building your own web application based on an external API. We will select an API that provides data about a topic that we like and then build the webapp around it. The webapp will have 2 user interfaces.
 
